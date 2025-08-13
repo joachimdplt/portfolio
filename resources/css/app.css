@@ -5,8 +5,8 @@
 /* === Design System minimal === */
 @layer components {
   /* Page & conteneur */
-  .page        { @apply min-h-screen bg-black text-white; }
-  .container   { @apply max-w-2xl mx-auto px-6 py-12; }
+  .page        { @apply min-h-screen bg-black text-white flex items-center justify-center; }
+  .container   { @apply max-w-2xl mx-auto px-6; }
 
   /* Typo - Style maquette */
   .kicker      { @apply uppercase tracking-wide text-xs text-white/50 font-light; }
@@ -24,8 +24,8 @@
   .message-bubble { @apply flex items-start gap-3 max-w-2xl; }
   .message-content { @apply flex flex-col space-y-1; }
   .message-time { @apply text-white/30 text-xs font-light tracking-wide; }
-  .message-text { @apply text-white text-xl leading-relaxed font-medium; }
-  .input-section { @apply mt-8 pt-6 border-t border-white/10; }
+  .message-text { @apply text-white text-3xl md:text-5xl font-bold leading-tight; }
+  .input-section { @apply mt-8 pt-6 border-t border-white/10 w-full max-w-2xl; }
 
   /* Surfaces & cartes */
   .surface     { @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm; }
@@ -35,6 +35,11 @@
   .input       { @apply w-full rounded-2xl bg-white/90 border-0 text-black
                        px-6 py-4 placeholder-black/60 text-lg
                        focus:outline-none focus:ring-2 focus:ring-white/50; }
+  
+  /* Input simple pour chat */
+  .input-simple { @apply w-full bg-white/90 border-0 text-black
+                       px-6 py-4 placeholder-black/60 text-xl
+                       focus:outline-none focus:ring-0 rounded-2xl; }
 
   /* Boutons - Style maquette */
   .btn         { @apply inline-flex items-center justify-center gap-2 rounded-2xl
