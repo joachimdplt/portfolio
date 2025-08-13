@@ -19,9 +19,13 @@
   .avatar      { @apply h-20 w-20 rounded-full border-2 border-white/20 object-cover; }
   .avatar-lg   { @apply h-32 w-32 rounded-full border-2 border-white/20 object-cover; }
 
-  /* Header profile */
-  .profile-header { @apply flex items-start gap-6 mb-12; }
-  .profile-info { @apply flex flex-col; }
+  /* Chat style layout */
+  .chat-container { @apply flex flex-col space-y-6; }
+  .message-bubble { @apply flex items-start gap-3 max-w-2xl; }
+  .message-content { @apply flex flex-col space-y-1; }
+  .message-time { @apply text-white/30 text-xs font-light tracking-wide; }
+  .message-text { @apply text-white text-xl leading-relaxed font-medium; }
+  .input-section { @apply mt-8 pt-6 border-t border-white/10; }
 
   /* Surfaces & cartes */
   .surface     { @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm; }
