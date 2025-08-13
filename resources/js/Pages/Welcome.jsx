@@ -1,8 +1,12 @@
 import { Head, router } from '@inertiajs/react';
 import { useState, useEffect } from 'react';
+import TypeWriter from '../Components/TypeWriter';
 
 export default function Welcome() {
     const [name, setName] = useState('');
+    const [showSecondMessage, setShowSecondMessage] = useState(false);
+    const [showInput, setShowInput] = useState(false);
+    
     const [currentTime] = useState(() => {
         const now = new Date();
         return now.toLocaleTimeString('en-US', { 
@@ -34,7 +38,12 @@ export default function Welcome() {
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
-            handleSubmit(e);
+            e.preventDefault();
+            if (name.trim()) {
+                localStorage.setItem('visitor_name', name.trim());
+                console.log('Nom saisi:', name.trim());
+                router.visit('/hello');
+            }
         }
     };
 
@@ -53,38 +62,47 @@ export default function Welcome() {
                             />
                             <div className="message-content">
                                 <div className="message-time">send at {currentTime}</div>
-                                <div className="message-text">Hello, my name is Joachim</div>
+                                <TypeWriter 
+                                    text="Hello, my name is Joachim" 
+                                    speed={50}
+                                    onComplete={() => {
+                                        setTimeout(() => setShowSecondMessage(true), 500);
+                                    }}
+                                />
                             </div>
                         </div>
 
-                        {/* Question */}
-                        <div className="message-bubble">
-                            <img 
-                                src="/img/user/joachimduplat.jpeg" 
-                                alt="Joachim Duplat" 
-                                className="avatar"
-                            />
-                            <div className="message-content">
-                                <div className="message-time">send at {currentTime}</div>
-                                <div className="message-text">What's your name?</div>
+                        {/* Question - sans photo */}
+                        {showSecondMessage && (
+                            <div className="message-bubble">
+                                <div className="message-content ml-0">
+                                    <div className="message-time">send at {currentTime}</div>
+                                    <TypeWriter 
+                                        text="What's your name?" 
+                                        speed={50}
+                                        delay={200}
+                                        onComplete={() => {
+                                            setTimeout(() => setShowInput(true), 300);
+                                        }}
+                                    />
+                                </div>
                             </div>
-                        </div>
+                        )}
 
-                        {/* Zone de saisie */}
-                        <div className="input-section">
-                            <form onSubmit={handleSubmit} className="form-spacing">
+                        {/* Zone de saisie simplifiée */}
+                        {showInput && (
+                            <div className="input-section">
                                 <input 
                                     type="text"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                     onKeyDown={handleKeyDown}
-                                    className="input flex-1 max-w-lg" 
+                                    className="input-simple" 
                                     placeholder="Enter your name here"
                                     autoFocus
                                 />
-                                <button type="submit" className="btn-primary">Continue</button>
-                            </form>
-                        </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
