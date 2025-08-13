@@ -34,7 +34,7 @@ export default function Hello() {
     const socialLinks = [
         {
             name: 'LinkedIn',
-            url: 'https://www.linkedin.com/in/joachim-duplat',
+            url: 'https://www.linkedin.com/in/joachim-d-645aa5180/',
             logo: '/img/logos/InBug-White.png',
             ariaLabel: 'LinkedIn'
         },

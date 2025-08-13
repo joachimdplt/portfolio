@@ -121,7 +121,7 @@ export default function Welcome() {
                                 <div className="mt-8 flex items-center gap-4">
                                     <a
                                         className="btn-icon"
-                                        href="https://www.linkedin.com/in/joachim-duplat"
+                                        href="https://www.linkedin.com/in/joachim-d-645aa5180/"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         title="LinkedIn"
