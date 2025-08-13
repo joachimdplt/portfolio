@@ -1,18 +1,34 @@
 import { Head, Link } from '@inertiajs/react';
 import { useState, useEffect } from 'react';
+import TypeWriter from '../Components/TypeWriter';
 
 export default function Hello() {
     const [visitorName, setVisitorName] = useState('');
-
+    const [currentTime, setCurrentTime] = useState('');
+    
     useEffect(() => {
+        // Mettre à jour l'heure en temps réel
+        const updateTime = () => {
+            const now = new Date();
+            setCurrentTime(now.toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: false 
+            }));
+        };
+        
+        updateTime();
+        const interval = setInterval(updateTime, 1000);
+        
         // Récupérer le nom depuis localStorage
         const storedName = localStorage.getItem('visitor_name');
         if (!storedName) {
-            // Rediriger vers la page d'accueil si pas de nom
             window.location.href = '/';
         } else {
             setVisitorName(storedName);
         }
+        
+        return () => clearInterval(interval);
     }, []);
 
     const socialLinks = [
@@ -49,10 +65,11 @@ export default function Hello() {
                                 className="avatar"
                             />
                             <div className="message-content">
-                                <div className="message-time">send at 12:02</div>
-                                <div className="message-text">
-                                    Hello {visitorName}! What are you looking for?
-                                </div>
+                                <div className="message-time">send at {currentTime}</div>
+                                <TypeWriter 
+                                    text={`Hello ${visitorName}! What are you looking for?`}
+                                    speed={50}
+                                />
                             </div>
                         </div>
 
