@@ -109,10 +109,11 @@ export default function Welcome() {
                                         className="avatar"
                                     />
                                     <div className="message-content">
-                                        <div className="message-time">send at 12:02</div>
-                                        <div className="message-text">
-                                            Hello {visitorName}! What are you looking for?
-                                        </div>
+                                        <div className="message-time">send at {currentTime}</div>
+                                        <TypeWriter 
+                                            text={`Hello ${visitorName}! What are you looking for?`}
+                                            speed={50}
+                                        />
                                     </div>
                                 </div>
 
