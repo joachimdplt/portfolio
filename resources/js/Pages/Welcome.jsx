@@ -1,9 +1,9 @@
 import { Head, router } from '@inertiajs/react';
 import { useState, useEffect } from 'react';
 import TypeWriter from '../Components/TypeWriter';
+import BlinkingBar from '../Components/BlinkingBar';
 
 export default function Welcome() {
-    const [name, setName] = useState('');
     const [showSecondMessage, setShowSecondMessage] = useState(false);
     const [showInput, setShowInput] = useState(false);
     
@@ -25,25 +25,11 @@ export default function Welcome() {
         }
     }, []);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (name.trim()) {
-            // Stocker le prénom en localStorage
-            localStorage.setItem('visitor_name', name.trim());
-            console.log('Nom saisi:', name.trim()); // Log simple pour MVP
-            // Rediriger vers /hello
+    const handleNameSubmit = (inputName) => {
+        if (inputName && inputName.trim()) {
+            localStorage.setItem('visitor_name', inputName.trim());
+            console.log('Nom saisi:', inputName.trim());
             router.visit('/hello');
-        }
-    };
-
-    const handleKeyDown = (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            if (name.trim()) {
-                localStorage.setItem('visitor_name', name.trim());
-                console.log('Nom saisi:', name.trim());
-                router.visit('/hello');
-            }
         }
     };
 
@@ -89,17 +75,16 @@ export default function Welcome() {
                             </div>
                         )}
 
-                        {/* Zone de saisie simplifiée */}
+                        {/* Barre clignotante */}
                         {showInput && (
                             <div className="input-section">
-                                <input 
-                                    type="text"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    onKeyDown={handleKeyDown}
-                                    className="input-simple" 
-                                    placeholder="Enter your name here"
-                                    autoFocus
+                                <BlinkingBar 
+                                    onNameSubmit={handleNameSubmit}
+                                    onEnter={() => {
+                                        // Fallback si pas de nom saisi
+                                        const demoName = "Visitor";
+                                        handleNameSubmit(demoName);
+                                    }}
                                 />
                             </div>
                         )}
