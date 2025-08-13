@@ -3,6 +3,14 @@ import { useState, useEffect } from 'react';
 
 export default function Welcome() {
     const [name, setName] = useState('');
+    const [currentTime] = useState(() => {
+        const now = new Date();
+        return now.toLocaleTimeString('en-US', { 
+            hour: '2-digit', 
+            minute: '2-digit',
+            hour12: false 
+        });
+    });
     
     useEffect(() => {
         // Vérifier si le nom est déjà en localStorage
@@ -35,33 +43,49 @@ export default function Welcome() {
             <Head title="Welcome" />
             <div className="page">
                 <div className="container">
-                    <div className="profile-header">
-                        <img 
-                            src="/img/user/joachimduplat.jpeg" 
-                            alt="Joachim Duplat" 
-                            className="avatar-lg"
-                        />
-                        <div className="profile-info">
-                            <div className="kicker">joachim duplat</div>
-                            <div className="subtitle">send at 12:00</div>
+                    <div className="chat-container">
+                        {/* Message de Joachim */}
+                        <div className="message-bubble">
+                            <img 
+                                src="/img/user/joachimduplat.jpeg" 
+                                alt="Joachim Duplat" 
+                                className="avatar"
+                            />
+                            <div className="message-content">
+                                <div className="message-time">send at {currentTime}</div>
+                                <div className="message-text">Hello, my name is Joachim</div>
+                            </div>
+                        </div>
+
+                        {/* Question */}
+                        <div className="message-bubble">
+                            <img 
+                                src="/img/user/joachimduplat.jpeg" 
+                                alt="Joachim Duplat" 
+                                className="avatar"
+                            />
+                            <div className="message-content">
+                                <div className="message-time">send at {currentTime}</div>
+                                <div className="message-text">What's your name?</div>
+                            </div>
+                        </div>
+
+                        {/* Zone de saisie */}
+                        <div className="input-section">
+                            <form onSubmit={handleSubmit} className="form-spacing">
+                                <input 
+                                    type="text"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    onKeyDown={handleKeyDown}
+                                    className="input flex-1 max-w-lg" 
+                                    placeholder="Enter your name here"
+                                    autoFocus
+                                />
+                                <button type="submit" className="btn-primary">Continue</button>
+                            </form>
                         </div>
                     </div>
-
-                    <h1 className="h1">Hello, my name is Joachim</h1>
-                    <p className="muted mt-4">What's your name?</p>
-
-                    <form onSubmit={handleSubmit} className="form-spacing">
-                        <input 
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            onKeyDown={handleKeyDown}
-                            className="input flex-1 max-w-lg" 
-                            placeholder="Enter your name here"
-                            autoFocus
-                        />
-                        <button type="submit" className="btn-primary">Continue</button>
-                    </form>
                 </div>
             </div>
         </>
