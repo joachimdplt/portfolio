@@ -2,6 +2,7 @@ import { Head, router, Link } from '@inertiajs/react';
 import { useState, useEffect } from 'react';
 import TypeWriter from '../Components/TypeWriter';
 import BlinkingBar from '../Components/BlinkingBar';
+import SocialButtons from '../Components/SocialButtons';
 
 export default function Welcome() {
     const [showSecondMessage, setShowSecondMessage] = useState(false);
@@ -117,52 +118,10 @@ export default function Welcome() {
                                     </div>
                                 </div>
 
-                                {/* Liens sociaux */}
-                                <div className="mt-8 flex items-center gap-4">
-                                    <a
-                                        className="btn-icon"
-                                        href="https://www.linkedin.com/in/joachim-d-645aa5180/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        title="LinkedIn"
-                                        aria-label="LinkedIn"
-                                    >
-                                        <img 
-                                            src="/img/logos/InBug-White.png" 
-                                            alt="LinkedIn" 
-                                            className="logo-icon"
-                                        />
-                                    </a>
-                                    <a
-                                        className="btn-icon"
-                                        href="https://github.com/joachimdplt"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        title="GitHub"
-                                        aria-label="GitHub"
-                                    >
-                                        <img 
-                                            src="/img/logos/github-mark-white.png" 
-                                            alt="GitHub" 
-                                            className="logo-icon"
-                                        />
-                                    </a>
-                                    <a
-                                        className="btn-icon"
-                                        href="mailto:hello@joachimduplat.com"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        title="Email"
-                                        aria-label="Email"
-                                    >
-                                        ✉️
-                                    </a>
+                                {/* Boutons sociaux */}
+                                <div className="mt-8">
+                                    <SocialButtons withTooltips={true} showProjects={true} />
                                 </div>
-
-                                {/* Bouton View Projects */}
-                                <Link href="/projects" className="btn-ghost mt-12 inline-flex">
-                                    View Projects
-                                </Link>
                             </>
                         )}
                     </div>
