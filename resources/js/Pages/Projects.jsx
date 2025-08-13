@@ -8,7 +8,7 @@ export default function Projects() {
     const project = {
         title: 'adopteunbox.fr',
         url: 'https://adopteunbox.fr',
-        emoji: '📦',
+        logo: '/img/logos/adopteunbox.png',
         features: [
             'Instant Online Quote - Automated calculation based on address, pickup date, storage duration, volume, and insurance level.',
             'Dual Service Options - With Transport (pickup & delivery included) or Self-Service (drop-off & pickup at warehouse).',
@@ -42,23 +42,16 @@ export default function Projects() {
             <Head title="Projects" />
             <div className="page">
                 <div className="container">
-                    <div className="profile-header">
-                        <img 
-                            src="/img/user/joachimduplat.jpeg" 
-                            alt="Joachim Duplat" 
-                            className="avatar-lg"
-                        />
-                        <div className="profile-info">
-                            <div className="kicker">joachim duplat</div>
-                        </div>
-                    </div>
-
                     <div className="kicker">Last projects :</div>
 
                     <div className="card mt-4">
-                        <div className="flex items-center gap-3">
-                            <div className="h-12 w-12 rounded-full bg-white/10 grid place-items-center text-xl">
-                                {project.emoji}
+                        <div className="flex items-center gap-6">
+                            <div className="h-12 w-12 rounded-full bg-white/10 grid place-items-center">
+                                <img 
+                                    src={project.logo} 
+                                    alt={project.title} 
+                                    className="h-11 w-11 object-contain"
+                                />
                             </div>
                             <div>
                                 <div className="font-semibold">
@@ -71,14 +64,6 @@ export default function Projects() {
                                         {project.title}
                                     </a>
                                 </div>
-                                <a 
-                                    href={project.url} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer" 
-                                    className="link text-sm"
-                                >
-                                    {project.url.replace('https://', '')}
-                                </a>
                             </div>
                         </div>
                     </div>
