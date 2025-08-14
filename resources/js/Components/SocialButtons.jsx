@@ -5,10 +5,11 @@ export default function SocialButtons({ withTooltips = false, showProjects = tru
     const socialLinks = [
         {
             name: 'CV',
-            url: '/cv.pdf',
+            url: '/cv',
             icon: '📄',
-            ariaLabel: 'Download CV',
-            tooltipText: 'Step 1 : Take a quick look to my CV'
+            ariaLabel: 'View CV',
+            tooltipText: 'Step 1 : Take a quick look to my CV and export as PDF',
+            isProject: true
         },
         {
             name: 'Projects',
@@ -62,7 +63,7 @@ export default function SocialButtons({ withTooltips = false, showProjects = tru
         );
 
         let button;
-        // Bouton Projects avec Link (navigation interne)
+        // Boutons internes avec Link (navigation interne)
         if (link.isProject) {
             button = (
                 <Link
@@ -80,8 +81,8 @@ export default function SocialButtons({ withTooltips = false, showProjects = tru
                 <a
                     className="btn-icon"
                     href={link.url}
-                    target={link.name === 'CV' || link.name === 'Email' ? '_self' : '_blank'}
-                    rel={link.name === 'CV' || link.name === 'Email' ? '' : 'noopener noreferrer'}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     title={link.name}
                     aria-label={link.ariaLabel}
                 >
