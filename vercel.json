@@ -11,6 +11,10 @@
     ],
     "routes": [
         {
+            "src": "/build/assets/(.*)",
+            "dest": "/build/assets/$1"
+        },
+        {
             "src": "/build/(.*)",
             "dest": "/build/$1"
         },
@@ -21,6 +25,10 @@
         {
             "src": "/video/(.*)",
             "dest": "/video/$1"
+        },
+        {
+            "src": "/favicon.ico",
+            "dest": "/favicon.ico"
         },
         {
             "src": "/(.*)",

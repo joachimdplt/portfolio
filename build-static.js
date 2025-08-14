@@ -41,7 +41,13 @@ if (fs.existsSync('public/favicon.ico')) {
     fs.copyFileSync('public/favicon.ico', 'dist/favicon.ico');
 }
 
-// Créer index.html statique
+// Lire le manifest pour obtenir les bons noms de fichiers
+let manifest = {};
+if (fs.existsSync('public/build/manifest.json')) {
+    manifest = JSON.parse(fs.readFileSync('public/build/manifest.json', 'utf8'));
+}
+
+// Créer index.html statique avec les bons chemins
 const indexHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
