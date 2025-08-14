@@ -1,61 +1,305 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Joachim Duplat - Portfolio
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern and interactive portfolio developed with Laravel, Inertia.js and React, showcasing the skills and projects of Joachim Duplat, Full Stack Developer.
 
-## About Laravel
+## Technologies Used
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Backend
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   **Laravel 12** - Modern PHP framework
+-   **Inertia.js** - Bridge between Laravel and React
+-   **Laravel Breeze** - Authentication and authorization
+-   **Laravel Sanctum** - API authentication
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Frontend
 
-## Learning Laravel
+-   **React 18** - JavaScript library for user interface
+-   **Inertia.js React** - React integration with Laravel
+-   **Tailwind CSS** - Utility CSS framework
+-   **Vite** - Build tool and bundler
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Development Tools
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+-   **TypeScript** - TypeScript support for React
+-   **PostCSS** - CSS processing
+-   **Autoprefixer** - Automatic CSS prefixes
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 📁 Project Architecture
 
-## Laravel Sponsors
+```
+joachimduplatportfolio/
+├── app/                          # Laravel business logic
+│   ├── Http/Controllers/         # Controllers
+│   ├── Models/                   # Eloquent models
+│   └── Providers/                # Service providers
+├── resources/
+│   ├── js/                       # JavaScript/React code
+│   │   ├── Components/           # Reusable React components
+│   │   │   ├── SocialButtons.jsx # Social buttons with tooltips
+│   │   │   ├── TypeWriter.jsx    # Typing animation
+│   │   │   ├── BlinkingBar.jsx   # Blinking input bar
+│   │   │   └── Tooltip.jsx       # Tooltip component
+│   │   ├── Pages/                # React pages (routes)
+│   │   │   ├── Welcome.jsx       # Homepage with name input
+│   │   │   ├── Hello.jsx         # Personalized welcome page
+│   │   │   ├── Projects.jsx      # Project portfolio
+│   │   │   ├── CV.jsx           # CV page with printing
+│   │   │   └── Auth/            # Authentication pages
+│   │   ├── Layouts/              # React layouts
+│   │   └── app.jsx              # React entry point
+│   ├── css/
+│   │   └── app.css              # Tailwind styles + design system
+│   └── views/
+│       └── app.blade.php        # Main Laravel template
+├── routes/
+│   ├── web.php                  # Main routes
+│   └── auth.php                 # Authentication routes
+├── public/                      # Public assets
+│   ├── img/                     # Images and logos
+│   └── video/                   # Demo videos
+├── config/                      # Laravel configuration
+├── database/                    # Migrations and seeders
+└── tests/                       # Automated tests
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Design System
 
-### Premium Partners
+The project uses a consistent design system with:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Colors
+
+-   **Main background** : Black (`bg-black`)
+-   **Text** : White with variable opacities
+-   **Accents** : White with transparency for borders
+
+### Typography
+
+-   **Titles** : `text-3xl md:text-5xl font-bold`
+-   **Subtitles** : `text-xl md:text-2xl font-semibold`
+-   **Normal text** : `text-white/70`
+-   **Secondary text** : `text-white/60`
+
+### Components
+
+-   **Cards** : `.card` with semi-transparent background
+-   **Buttons** : `.btn-primary`, `.btn-ghost`, `.btn-icon`
+-   **Messages** : `.message-bubble` for chat
+-   **Inputs** : `.input` with modern style
+
+## Local Installation and Deployment
+
+### Prerequisites
+
+-   **PHP 8.2+**
+-   **Composer**
+-   **Node.js 18+**
+-   **npm** or **yarn**
+-   **Git**
+
+### Installation Steps
+
+1. **Clone the repository**
+
+    ```bash
+    git clone <repository-url>
+    cd joachimduplatportfolio
+    ```
+
+2. **Install PHP dependencies**
+
+    ```bash
+    composer install
+    ```
+
+3. **Install Node.js dependencies**
+
+    ```bash
+    npm install
+    ```
+
+4. **Environment configuration**
+
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+    ```
+
+5. **Database configuration**
+
+    ```bash
+    # Create SQLite database (recommended for development)
+    touch database/database.sqlite
+
+    # Or configure MySQL/PostgreSQL in .env
+    ```
+
+6. **Run migrations**
+
+    ```bash
+    php artisan migrate
+    ```
+
+7. **Start development server**
+
+    ```bash
+    # Terminal 1: Laravel server
+    php artisan serve
+
+    # Terminal 2: Vite build (hot reload)
+    npm run dev
+    ```
+
+8. **Access the application**
+
+    ```
+    http://localhost:8000
+    ```
+
+### Development Scripts
+
+```bash
+# Complete development (server + build + logs)
+composer run dev
+
+# Production build
+npm run build
+
+# Tests
+composer test
+```
+
+## Main Features
+
+### 1. Interactive Homepage
+
+-   **TypeWriter animation** : Text that displays character by character
+-   **Name input** : Chat interface to capture visitor's name
+-   **Local storage** : Save name in localStorage
+-   **Blinking bar** : Visual indicator for input
+
+### 2. Social Navigation
+
+-   **Interactive buttons** : CV, Projects, GitHub, LinkedIn, Email
+-   **Informative tooltips** : Guide user step by step
+-   **Smart navigation** : Internal vs external links
+-   **Email copy** : Clipboard copy functionality
+
+### 3. CV Page
+
+-   **Responsive layout** : Two columns on desktop, one on mobile
+-   **Detailed sections** : Education, experience, technical skills
+-   **Optimized printing** : Browser print button
+-   **Professional design** : Style consistent with the rest of the site
+
+### 4. Project Portfolio
+
+-   **Detailed presentation** : Adopte un Box, Studi, etc.
+-   **Displayed technologies** : Technical stack for each project
+-   **Demo videos** : Integrated multimedia content
+-   **Smooth navigation** : Inertia.js transitions
+
+## Advanced Configuration
+
+### Environment Variables
+
+```env
+APP_NAME="Joachim Duplat Portfolio"
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=sqlite
+DB_DATABASE=database/database.sqlite
+
+VITE_APP_NAME="Joachim Duplat Portfolio"
+```
+
+### Design Customization
+
+Styles are centralized in `resources/css/app.css` with custom Tailwind classes:
+
+-   `.page` : Main layout
+-   `.message-bubble` : Message styling
+-   `.btn-*` : Button variants
+-   `.card` : Surface components
+
+### Adding New Pages
+
+1. Create React component in `resources/js/Pages/`
+2. Add route in `routes/web.php`
+3. Use `Inertia::render('PageName')`
+
+## Production Deployment
+
+### Preparation
+
+```bash
+# Build assets
+npm run build
+
+# Laravel optimization
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+### Web Server
+
+-   **Nginx** or **Apache** configured for Laravel
+-   **PHP-FPM** for performance
+-   **SSL** required in production
+
+### Database
+
+-   **MySQL** or **PostgreSQL** recommended
+-   **Redis** for caching (optional)
+
+## Testing
+
+```bash
+# PHP tests
+php artisan test
+
+# Tests with coverage
+php artisan test --coverage
+```
+
+## Component Structure
+
+### SocialButtons.jsx
+
+-   **Props** : `withTooltips`, `showProjects`
+-   **Features** : Navigation, tooltips, email copy
+-   **Reusable** : Used on Welcome and Hello
+
+### TypeWriter.jsx
+
+-   **Props** : `text`, `speed`, `delay`, `onComplete`
+-   **Animation** : Progressive text display
+-   **Callback** : Animation completion notifications
+
+### BlinkingBar.jsx
+
+-   **Props** : `onEnter`, `onNameSubmit`
+-   **Input** : Keyboard key capture
+-   **Validation** : Empty input handling
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## Author
+
+**Joachim Duplat**
+
+-   Email : joachim@shakepoint.tech
+-   LinkedIn : [Joachim Duplat](https://www.linkedin.com/in/joachim-d-645aa5180/)
+-   GitHub : [joachimdplt](https://github.com/joachimdplt)
