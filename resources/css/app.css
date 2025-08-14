@@ -63,8 +63,8 @@
   .pager       { @apply flex items-center justify-between text-white/70; }
 
   /* Espacement maquette */
-  .section-spacing { @apply space-y-8; }
-  .form-spacing { @apply mt-12 flex flex-col sm:flex-row items-center gap-4; }
+.section-spacing { @apply space-y-8; }
+.form-spacing { @apply mt-12 flex flex-col sm:flex-row items-center gap-4; }
   
 
 }
