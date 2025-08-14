@@ -22,24 +22,19 @@ export default function BlinkingBar({ onEnter, onNameSubmit }) {
                 } else if (onEnter) {
                     onEnter();
                 }
-            }
-        };
-
-        const handleKeyPress = (e) => {
-            if (e.key.length === 1) {
+            } else if (e.key === 'Backspace') {
+                e.preventDefault();
+                setName(prev => prev.slice(0, -1));
+            } else if (e.key.length === 1) {
                 setIsTyping(true);
                 setName(prev => prev + e.key);
-            } else if (e.key === 'Backspace') {
-                setName(prev => prev.slice(0, -1));
             }
         };
 
         document.addEventListener('keydown', handleKeyDown);
-        document.addEventListener('keypress', handleKeyPress);
         
         return () => {
             document.removeEventListener('keydown', handleKeyDown);
-            document.removeEventListener('keypress', handleKeyPress);
         };
     }, [name, onEnter, onNameSubmit]);
 
