@@ -17,6 +17,10 @@ Route::get('/projects', function () {
     return Inertia::render('Projects');
 });
 
+Route::get('/cv', function () {
+    return Inertia::render('CV');
+});
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
