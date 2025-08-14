@@ -1,6 +1,5 @@
 {
     "version": 2,
-    "framework": "vite",
     "builds": [
         {
             "src": "package.json",
@@ -16,10 +15,12 @@
             "dest": "/build/$1"
         },
         {
+            "src": "/assets/(.*)",
+            "dest": "/build/assets/$1"
+        },
+        {
             "src": "/(.*)",
             "dest": "/index.html"
         }
-    ],
-    "buildCommand": "npm run build",
-    "outputDirectory": "public/build"
+    ]
 }
