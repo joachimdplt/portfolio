@@ -5,7 +5,7 @@
             "src": "package.json",
             "use": "@vercel/static-build",
             "config": {
-                "distDir": "public/build"
+                "distDir": "dist"
             }
         }
     ],
@@ -15,8 +15,12 @@
             "dest": "/build/$1"
         },
         {
-            "src": "/assets/(.*)",
-            "dest": "/build/assets/$1"
+            "src": "/img/(.*)",
+            "dest": "/img/$1"
+        },
+        {
+            "src": "/video/(.*)",
+            "dest": "/video/$1"
         },
         {
             "src": "/(.*)",
