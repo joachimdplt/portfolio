@@ -10,4 +10,17 @@ export default defineConfig({
         }),
         react(),
     ],
+    define: {
+        // Variables d'environnement pour le mode statique
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
+        'process.env.VITE_APP_NAME': JSON.stringify(process.env.VITE_APP_NAME || 'Joachim Duplat Portfolio'),
+    },
+    build: {
+        // Configuration pour le build statique
+        rollupOptions: {
+            output: {
+                manualChunks: undefined,
+            },
+        },
+    },
 });
