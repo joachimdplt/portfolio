@@ -35,10 +35,10 @@ export default function SocialButtons({ withTooltips = false, showProjects = tru
         },
         {
             name: 'Email',
-            url: 'mailto:hello@joachimduplat.com',
+            url: 'mailto:joachim@shakepoint.tech?subject=Hello from your portfolio',
             icon: '✉️',
             ariaLabel: 'Email',
-            tooltipText: 'Step 5 : Get in touch via email'
+            tooltipText: 'Step 5 : Copy email to clipboard'
         }
     ];
 
@@ -74,6 +74,32 @@ export default function SocialButtons({ withTooltips = false, showProjects = tru
                 >
                     {buttonContent}
                 </Link>
+            );
+        } else if (link.name === 'Email') {
+            // Bouton email avec copie dans le presse-papiers
+            button = (
+                <button
+                    className="btn-icon"
+                    onClick={() => {
+                        const email = 'joachim@shakepoint.tech';
+                        navigator.clipboard.writeText(email).then(() => {
+                            alert(`Email copié dans le presse-papiers : ${email}`);
+                        }).catch(() => {
+                            // Fallback si clipboard ne marche pas
+                            const textArea = document.createElement('textarea');
+                            textArea.value = email;
+                            document.body.appendChild(textArea);
+                            textArea.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(textArea);
+                            alert(`Email copié dans le presse-papiers : ${email}`);
+                        });
+                    }}
+                    title={link.name}
+                    aria-label={link.ariaLabel}
+                >
+                    {buttonContent}
+                </button>
             );
         } else {
             // Autres boutons avec <a>
