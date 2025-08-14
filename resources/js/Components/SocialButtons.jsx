@@ -1,5 +1,23 @@
-import { Link } from '@inertiajs/react';
 import Tooltip from './Tooltip';
+
+// Mock Link component pour le mode statique
+const Link = ({ href, children, ...props }) => {
+    const handleClick = (e) => {
+        e.preventDefault();
+        if (window.Inertia && window.Inertia.visit) {
+            window.Inertia.visit(href);
+        } else {
+            window.history.pushState({}, '', href);
+            window.dispatchEvent(new PopStateEvent('popstate'));
+        }
+    };
+    
+    return (
+        <a href={href} onClick={handleClick} {...props}>
+            {children}
+        </a>
+    );
+};
 
 export default function SocialButtons({ withTooltips = false, showProjects = true }) {
     const socialLinks = [

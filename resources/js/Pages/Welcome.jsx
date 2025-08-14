@@ -1,8 +1,8 @@
-import { Head, router, Link } from '@inertiajs/react';
 import { useState, useEffect } from 'react';
 import TypeWriter from '../Components/TypeWriter';
 import BlinkingBar from '../Components/BlinkingBar';
 import SocialButtons from '../Components/SocialButtons';
+import { Head, Link } from '../StaticComponents';
 
 export default function Welcome() {
     const [showSecondMessage, setShowSecondMessage] = useState(false);

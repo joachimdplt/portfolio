@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react';
+import { Head } from '../StaticComponents';
 import { useState, useEffect } from 'react';
 import TypeWriter from '../Components/TypeWriter';
 import SocialButtons from '../Components/SocialButtons';

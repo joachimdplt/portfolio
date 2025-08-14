@@ -1,4 +1,4 @@
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link } from '../StaticComponents';
 import { useState, useEffect, useRef } from 'react';
 
 export default function Projects() {

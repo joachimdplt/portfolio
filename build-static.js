@@ -56,7 +56,7 @@ const indexHtml = `<!DOCTYPE html>
     <title>Joachim Duplat - Portfolio</title>
     <meta name="description" content="Full Stack Developer Portfolio - Joachim Duplat">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <script type="module" crossorigin src="/build/assets/app-DiB3h8b8.js"></script>
+    <script type="module" crossorigin src="/build/assets/app-C_fFDzHT.js"></script>
     <link rel="stylesheet" crossorigin href="/build/assets/app-DeDnJxOv.css">
 </head>
 <body>

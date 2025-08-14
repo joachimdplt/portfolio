@@ -1,4 +1,4 @@
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link } from '../StaticComponents';
 
 export default function CV() {
     const handlePrint = () => {
